@@ -4,6 +4,8 @@
 
 Приложение с прогнозом погоды на React 19, TypeScript и Vite. Без API-ключей и регистрации.
 
+Демо: https://1elmmmn.github.io/weather-app-react/
+
 <!-- Добавьте сюда скриншот: ![Скриншот](docs/screenshot.png) -->
 
 ## Возможности
