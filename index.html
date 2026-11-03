@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Погода — прогноз на 7 дней</title>
+    <meta name="description" content="Прогноз погоды на 7 дней и по часам для любого города. Без регистрации, данные Open-Meteo." />
+    <meta name="theme-color" content="#1e3a8a" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌤️%3C/text%3E%3C/svg%3E" />
+    <script>
+      // Выбор темы до отрисовки React, чтобы не было «вспышки».
+      try {
+        var theme = JSON.parse(localStorage.getItem('weather-app:theme'));
+        if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
+      } catch (e) {}
+    </script>
+  </head>
+  <body data-weather="clear">
+    <div id="root"></div>
+    <noscript>Для работы приложения нужен JavaScript.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
