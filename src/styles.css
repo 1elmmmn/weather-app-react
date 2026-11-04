@@ -236,6 +236,9 @@ a { color: inherit; }
 .container {
   display: grid;
   gap: 16px;
+  /* minmax(0, 1fr): колонка не растягивается под длинную ленту почасового прогноза */
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
   max-width: 960px;
   margin: 0 auto;
   padding: 8px 16px 24px;
@@ -260,10 +263,13 @@ a { color: inherit; }
   color: var(--muted);
 }
 
-.content { display: grid; gap: 16px; }
+.content { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
 
-.grid { display: grid; gap: 16px; align-items: start; }
-@media (min-width: 860px) { .grid { grid-template-columns: 1.15fr 0.85fr; } }
+.grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; }
+@media (min-width: 860px) { .grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); } }
+
+/* Карточки внутри сетки могут сжиматься, а длинное содержимое прокручивается внутри них */
+.container > *, .content > *, .grid > * { min-width: 0; }
 
 /* Избранное */
 .favorites { overflow-x: auto; }
